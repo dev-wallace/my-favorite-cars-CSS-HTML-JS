@@ -196,8 +196,39 @@ color: #555;
 }
 
 /*quando for selecionado o botton de next eu volto para imagem localizada no primeiro item*/
+.carousel .list .item:nth-child(1) .content .author,
+.carousel .list .item:nth-child(1) .content .title,
+.carousel .list .item:nth-child(1) .content .topic,
+.carousel .list .item:nth-child(1) .content .des,
+.carousel .list .item:nth-child(1) .content .buttons
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
+@keyframes showContent{
+    to{
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+.carousel .list .item:nth-child(1) .content .title{
+    animation-delay: 1.2s!important;
+}
+.carousel .list .item:nth-child(1) .content .topic{
+    animation-delay: 1.4s!important;
+}
+.carousel .list .item:nth-child(1) .content .des{
+    animation-delay: 1.6s!important;
+}
+.carousel .list .item:nth-child(1) .content .buttons{
+    animation-delay: 1.8s!important;
+}
+
 .carousel.next .list .item:nth-child(1) img{
-    width: 150px;
+    width: 140px;
     height: 220px;
     position: absolute;
     bottom: 50px;
@@ -219,7 +250,9 @@ color: #555;
     overflow: hidden;
     animation: showThumbnail .5s linear 1 forwards;
 }
-
+.carousel.prev .list .item img{
+    z-index: 100;
+}
 @keyframes showThumbnail{
     from{
         width: 0;
@@ -227,15 +260,38 @@ color: #555;
     }
 }
 .carousel.next .thumbnail{
-  
     animation: effectNext .5s linear 1 forwards;
 }
 
 @keyframes effectNext{
     from{
-        transform: translateX(150px);
+        transform: translateX(140px);
     }
 }
+
+/* tempo da animacao  */
+
+.carousel .time{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 3px;
+    background-color: #f1683a;
+    left: 0;
+    top: 0;
+}
+
+.carousel.next .time,
+.carousel.prev .time{
+    animation: runningTime 3s linear 1 forwards;
+}
+@keyframes runningTime{
+    from{ width: 100%}
+    to{width: 0}
+}
+
+
+
 
 .carousel.prev .list .item:nth-child(2){
     z-index: 2;
@@ -283,13 +339,12 @@ color: #555;
     }
 }
 
-
-.carousel .time{
-    position: absolute;
-    z-index: 1000;
-    width: 0%;
-    height: 3px;
-    background-color: #f1683a;
-    left: 0;
-    top: 0;
+/*para tela de celular*/
+@media screen and (max-width: 678px) {
+    .carousel .list .item .content{
+        padding-right: 0;
+    }
+    .carousel .list .item .content .title{
+        font-size: 30px;
+    }
 }
