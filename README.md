@@ -46,8 +46,8 @@ Este slider é ideal para entusiastas de automóveis e qualquer pessoa interessa
 ## Como Executar o Projeto
 
 1. Clone este repositório.
-2. Abra o arquivo `index.html` em um navegador web.
-3. Navegue entre os slides para explorar os diferentes carros e suas descrições.
+
+2. Navegue entre os slides para explorar os diferentes carros e suas descrições.
 
 ## Autor
 
